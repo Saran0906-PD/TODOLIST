@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <input id="input" placeholder="Add a task..." />
+    <button onclick="add()">Add</button>
+    <ul id="list-container"></ul>
+
+    <script>
+      var ul = document.getElementById("list-container");
+      function add() {
+        var listitem = document.createElement("li");
+        var inputt = document.getElementById("input");
+        listitem.innerHTML =
+          inputt.value +
+          '<button onclick="Delete(event)">Delete</button>';
+        ul.append(listitem);
+        inputt.value = ""; // clear input after adding
+      }
+
+      function Delete(event) {
+        event.target.parentElement.remove();
+      }
+    </script>
+  </body>
+</html>
